@@ -1,0 +1,1 @@
+<web-view src="https://cloudapi.usr.cn/wxPage/wxHistory.html?token={{token}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}"></web-view>

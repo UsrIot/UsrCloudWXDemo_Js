@@ -1,0 +1,8 @@
+
+
+button{
+  margin-top: 50rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  margin-bottom: 30rpx;
+}

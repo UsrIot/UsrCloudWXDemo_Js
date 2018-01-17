@@ -1,0 +1,80 @@
+/* pages/test/test.wxss */
+
+page {
+  /*弹性布局  */
+  display: flex;
+  /*方向  column：纵 row :横*/
+  flex-direction: column;
+  height: 100%;
+}
+
+.monitor-device-info {
+  display: flex;
+  align-items: center; /*垂直居中*/
+  flex-direction: row;
+  padding: 20rpx 0 20rpx 30rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #e5e5e5;
+  position: relative;
+}
+
+.devices-info-state {
+  display: flex;
+  vertical-align: middle;
+  width: 32rpx;
+  height: 32rpx;
+  align-items: center;
+  /* position: absolute; */
+  line-height: 50rpx;
+  margin-right: 30rpx;
+  transition: transform 0.4s;
+}
+
+.devices-info-state image {
+  width: 100%;
+  height: 100%;
+}
+
+.device-info-moredata {
+ /* margin-left: 350rpx; */
+}
+
+.device-info {
+  display: flex;
+  flex: 1;
+  /* margin-left: 62rpx; */
+  flex-direction: column;
+}
+
+.device-name {
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4rpx;
+}
+
+.device-id {
+  font-size: 20rpx;
+}
+
+
+.loading {
+  padding: 10rpx;
+  text-align: center;
+}
+
+.loading:before {
+  display: inline-block;
+  margin-right: 5rpx;
+  vertical-align: middle;
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  background-size: contain;
+  animation: rotate 1s linear infinite;
+}
+
+.loading.complete:before {
+  display: none;
+}

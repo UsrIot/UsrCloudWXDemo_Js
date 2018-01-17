@@ -1,0 +1,42 @@
+<!--index.wxml-->
+<!-- <view>
+  <input></input>
+</view> -->
+<view>
+  <map id="map" longitude="117.02496707" latitude="36.68278473" scale="10" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" data-statu="open" bindregionchange="regionchange" style="width:100%; height: {{height}}px;position:fixed;bottom:0;border: 1px solid #e8e8ea;  " 
+    bindtap="mapbindtap"></map>
+</view>
+
+<!--mask-->
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<!--content-->
+<!--使用animation属性指定需要执行的动画-->
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+
+  <!--drawer content-->
+  <!-- <view class="drawer_title">设备信息</view> -->
+  <view class="drawer_content">
+    <view class="top grid">
+      <label class="title col-0">设备名称：</label>
+      <text class="input_base input_h30 col-1" name="rName">{{devinfo.name}}</text>
+    </view>
+    <view class="top grid">
+      <label class="title col-0">设备编号：</label>
+      <text class="input_base input_h30 col-1" name="rName">{{devinfo.id}}</text>
+    </view>
+    <!-- <view class="top grid">
+      <label class="title col-0">关联数据：</label>
+      <text class="input_base input_h30 col-1" name="rName">{{devinfo.pointCount}}</text>
+    </view> -->
+    <view class="top grid">
+      <label class="title col-0">设备地址：</label>
+      <text class="input_base input_h30 col-1" name="rName">{{devinfo.address}}</text>
+    </view>
+  </view>
+  <view class='btn_operation'>
+    <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close" data-id='0'>设备管理</view> -->
+    <view class="btn_ok" bindtap="powerDrawer" data-statu="close" data-id='1'>数据监控</view>
+    <!-- <view class="btn_ok" bindtap="powerDrawer" data-statu="close" data-id='2'>取消查看</view> -->
+  </view>
+
+</view>

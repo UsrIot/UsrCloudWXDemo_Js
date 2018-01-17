@@ -1,0 +1,136 @@
+/*mask*/
+
+.map {
+  width: 330rpx;
+}
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #fff;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+/*content*/
+
+.drawer_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  /* bottom: 10px; */
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: #fafafa;
+  /* margin: -150px 50rpx 0 50rpx; */
+  border-radius: 3px;
+}
+
+.drawer_title {
+  padding: 20rpx;
+  font: 35rpx "microsoft yahei";
+  text-align: center;
+}
+
+.drawer_content {
+  height: 155px;
+  overflow-y: scroll; /*超出父盒子高度可滚动*/
+}
+
+.btn_operation {
+  display: flex;
+  height: 80rpx;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.btn_ok {
+  width: 100%;
+  padding: 20rpx;
+  background: #f8f9fa;
+  font: 25rpx "microsoft yahei";
+  text-align: center;
+  border: 1px solid #e8e8ea;
+  color: #3cc51f;
+}
+
+.top {
+  padding-top: 8px;
+  height: 30px;
+  padding-left: 20rpx;
+  line-height: 30px;
+}
+
+.bottom {
+  padding-bottom: 8px;
+}
+
+.title {
+  width: 160rpx;
+  text-align: center;
+  display: inline-block;
+  /* font: 300 28rpx/30px "microsoft yahei"; */
+  font: 28rpx "microsoft yahei";
+}
+
+.input_base {
+  /* border: 2rpx solid #ccc; */
+  padding-left: 10rpx;
+  margin-right: 50rpx;
+}
+
+.input_h30 {
+  font-size: 25rpx;
+  height: 30px;
+  color: #979898;
+  line-height: 30px;
+}
+
+.input_h60 {
+  height: 60px;
+}
+
+.input_view {
+  font: 12px "microsoft yahei";
+  background: #fff;
+  color: #000;
+  line-height: 30px;
+}
+
+input {
+  font: 12px "microsoft yahei";
+  background: #fff;
+  color: #000;
+}
+
+radio {
+  margin-right: 20px;
+}
+
+.grid {
+  display: -webkit-box;
+  display: box;
+}
+
+.col-0 {
+  -webkit-box-flex: 0;
+  box-flex: 0;
+}
+
+.col-1 {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}

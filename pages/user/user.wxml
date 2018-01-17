@@ -1,0 +1,13 @@
+<view class="header flex-col h-center v-center">
+
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <image bindtap="bindViewTap" class="avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="level exp fs-16">{{userAccount}}</text>
+  </block>
+</view>
+<view class="content flex-row" bindtap="Signout">
+  <image src="../../images/user/logout.png" class="sm-img"></image>
+  <text>退出登陆</text>
+  <image src="../../images/user/right.png" class="sm-img pull-right"></image>
+</view>

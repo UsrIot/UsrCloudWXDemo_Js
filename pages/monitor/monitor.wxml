@@ -1,0 +1,23 @@
+<view class="monitor-parent">
+
+  <scroll-view scroll-y style="height: 750px;" bindscrolltolower="searchScrollLower">
+    <view class='monitor-infos' bindtap='onClickDeviceInfo' wx:for="{{devicesInfoList}}" wx:for-index="idx" wx:key="unique" data-devid="{{item.devid}}" data-idx='{{idx}}'>
+      <!--设备信息  -->
+      <view class="monitor-device-info">
+       
+        <view class="devices-info-state">
+          <image src="{{item.onlineStatus ?'/images/monitor/online.png':'/images/monitor/offline.png'}}" />
+        </view>
+        <view class="device-info">
+          <text class="device-name">{{item.name}}</text>
+          <text class='device-id'>{{item.devid}}</text>
+        </view>
+         <view class="devices-info-state device-info-moredata">
+          <image src="/images/monitor/devices-pointright.png" />
+        </view>
+      </view>
+    </view>
+    <view class="loading" hidden="{{!searchLoading}}">正在载入更多...</view>
+    <view class="loading complete" hidden="{{!searchLoadingComplete}}">已加载全部</view>
+  </scroll-view>
+</view>
