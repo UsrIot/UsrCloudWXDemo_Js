@@ -1,0 +1,103 @@
+/* pages/register/register.wxss */
+page {
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f2f2f2;
+}
+
+/*登录图片*/
+
+.register-icon {
+    flex: none;
+}
+
+.register-img {
+    width: 750rpx;
+    background: #fff;
+}
+
+/*表单内容*/
+
+.register-from {
+    /* margin-top: 20rpx; */
+    flex: auto;
+    width: 100%;
+}
+
+.inputView {
+    border-radius: 4rpx;
+    background-color: #fff;
+    line-height: 44px;
+    margin-left: 2rpx;
+    margin-right: 2rpx;
+}
+
+/*输入框*/
+
+.nameImage, .keyImage {
+    margin-left: 22px;
+    width: 14px;
+    height: 14px;
+}
+
+.registerLab {
+    margin: 15px 15px 15px 10px;
+    color: #545454;
+    font-size: 14px;
+}
+
+.inputText {
+    flex: block;
+    float: right;
+    width: 300rpx;
+    text-align: right;
+    margin-right: 22px;
+    margin-top: 11px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 1px;
+}
+
+/*按钮*/
+
+.registerBtnView {
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-left: 5%;
+    background-color: #f2f2f2;
+    flex-direction: column;
+}
+
+.registerBtn {
+    justify-content: center;
+    margin: 5rpx;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.bindBtn {
+    margin: 5rpx;
+    width: 50%;
+    margin-top: 20px;
+}
+
+#login{
+    color:#4896ff;
+    justify-content:center;
+    display:flex;
+    margin-top:25rpx;
+}

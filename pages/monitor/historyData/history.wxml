@@ -1,1 +1,5 @@
-<web-view src="https://cloudapi.usr.cn/wxPage/wxHistory.html?token={{token}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}"></web-view>
+
+    <web-view style="display:none"
+              src="https://cloudapi.usr.cn/wxPage/wxHistory.html?token={{token}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}"></web-view>
+
+<!--<web-view src="http://4bfb39ba.ngrok.io/wxHistory.html?token={{token}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}"></web-view>-->

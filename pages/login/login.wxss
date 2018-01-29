@@ -95,3 +95,22 @@ page {
   width: 50%;
   margin-top: 20px;
 }
+
+#register{
+  color:#4896ff;
+  justify-content:center;
+  display:flex;
+  margin-top:25rpx;
+}
+
+.textButton{
+    color:#4896ff;
+    background-color:#F2F2F2;
+    line-height:65rpx;
+    font-size:36rpx;
+    padding-left:10rpx;
+  padding-right:0rpx;
+}
+.textButton::after{
+    border:0rpx solid rgba(255,255, 255, 0);
+}

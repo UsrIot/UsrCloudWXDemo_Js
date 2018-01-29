@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>今日历史数据</title>
+</head>
+<body>
+<div id="chart" style="transform: rotate(90deg);position:absolute;left:-131px;top:126px;"></div>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="echarts.min.js"></script>
+<script>
+    $("#chart").css({width: $(this).height(), height: $(this).width() });
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    //document.write(window.location.search);
+    function generateChart(data) {
+        var myChart = echarts.init(document.getElementById('chart'));
+        var chartData = [];
+        for (let key in data) {
+            let value = [];
+            value[0] = getTime(data[key]['generateTime'], 'y-M-d h:m:s');
+            value[1] = data[key].value;
+            chartData.push({
+                name: value[0],
+                value: value
+            })
+        }
+        myChart.setOption({
+            title: {
+                text: '近一个小时历史数据'
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    params = params[0];
+                    var date = new Date(params.name);
+                    return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+                },
+                axisPointer: {
+                    animation: false
+                }
+            },
+            grid: {
+                left: 50
+            },
+            xAxis: {
+                type: 'time',
+                splitLine: {
+                    show: false
+                }
+            },
+            yAxis: {
+                type: 'value',
+                splitLine: {
+                    show: false
+                }
+            },
+            series: [{
+                name: '模拟数据',
+                type: 'line',
+                showSymbol: false,
+                hoverAnimation: false,
+                data: chartData
+            }]
+        })
+    }
+
+    $.post("https://cloudapi.usr.cn/usrCloud/datadic/getDataHisByTimePeriod",
+        JSON.stringify({
+            "token": getQueryString('token'),
+            "devDataPointArray":
+                [
+                    {
+                        "devId": getQueryString('deviceId'),
+                        "slaveIndex": getQueryString('slaveIndex'),
+                        "dataId": getQueryString('dataPointId')
+                    }
+                ],
+            "startTime": parseInt((new Date().getTime()) / 1000) - 3600 * 1,
+            "stopTime": parseInt((new Date().getTime()) / 1000)
+        }),
+        function (res) {
+            generateChart(res.data[0]);
+        }, 'json'
+    );
+
+    function getTime(time, format) {
+        var date = new Date(time * 1000);
+        if (format === undefined) {
+            format = date;
+            date = new Date();
+        }
+        var map = {
+            "y": date.getFullYear(),//年
+            "M": date.getMonth() + 1, //月份
+            "d": date.getDate(), //日
+            "h": date.getHours(), //小时
+            "m": date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes(), //分
+            "s": date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds(), //秒
+            "q": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds() //毫秒
+        };
+        format = format.replace(/([yMdhmsqS])+/g, function (all, t) {
+            var v = map[t];
+            if (v !== undefined) {
+                if (all.length > 1) {
+                    v = '0' + v;
+                    v = v.substr(v.length - 2);
+                }
+                return v;
+            }
+            return all;
+        });
+        return format;
+    };
+
+</script>
+</body>
+</html>

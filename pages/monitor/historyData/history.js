@@ -1,10 +1,8 @@
 Page({
-  onLoad: function (options) {
-    this.setData({
-      dataPointId: options.dataPointId,
-      deviceId: options.deviceId,
-      slaveIndex: options.slaveIndex,
-      token: options.token
-    })
-  }
+    data: {
+        token: wx.getStorageSync("token"),
+        deviceId: wx.getStorageSync("deviceId"),
+        slaveIndex: wx.getStorageSync("slaveIndex"),
+        dataPointId: wx.getStorageSync("dataPointId")
+    },
 });
