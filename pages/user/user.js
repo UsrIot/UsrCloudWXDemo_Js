@@ -42,6 +42,7 @@ Page({
         that.setData({
           userAccount : res.data.data.account
         });
+        console.log(res);
       }
     })
   },

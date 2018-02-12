@@ -40,7 +40,7 @@
         </form>
 
         <view id="login" bindtap="login">
-            登录
+            返回登录
         </view>
 
     </view>

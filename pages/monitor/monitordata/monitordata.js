@@ -33,7 +33,7 @@ Page({
         try {
             token = wx.getStorageSync('userinfo').data.token;
             useraccount = wx.getStorageSync('userinfo').data.account;
-            password = md5util.hexMD5(wx.getStorageSync('userpass'));
+            password = wx.getStorageSync('userpass');
         } catch (e) {
             console.log('获取缓存失败' + e);
             wx.showToast({
@@ -238,7 +238,6 @@ Page({
     getDatasInfo: function () {
         var that = this;
         wx.request({
-            // url: 'http://superking.ngrok.xiaomiqiu.cn/usrCloud/datadic/getDataPointInfoByDevice',
             url: 'https://cloudapi.usr.cn/usrCloud/datadic/getDataPointInfoByDevice',
             method: 'POST',
             data: {
@@ -269,8 +268,7 @@ Page({
                 var DataDevIdlist = that.makeDevDataId(dataInfoList)
                 //获取最后一条数据
                 that.getLastDataInfo(DataDevIdlist);
-                client.USR_Connect(useraccount, password);
-            },
+                client.USR_Connect(useraccount, password);},
         })
 
     },
@@ -296,7 +294,6 @@ Page({
         var that = this;
         //再去获取属于此设备的最后一条数据
         wx.request({
-            // url: 'http://superking.ngrok.xiaomiqiu.cn/usrCloud/datadic/getLastData',
             url: 'https://cloudapi.usr.cn/usrCloud/datadic/getLastData',
             method: 'POST',
             data: {
@@ -364,10 +361,6 @@ Page({
      * 获取历史记录图表
      */
     getHistory: function (param) {
-        wx.setStorageSync("token",wx.getStorageSync("token"));
-        wx.setStorageSync("deviceId",devid);
-        wx.setStorageSync("slaveIndex",param.currentTarget.dataset.slaveindex);
-        wx.setStorageSync("dataPointId",param.currentTarget.dataset.dataid);
         wx.navigateTo({
             url: '../historyData/history?token=' + wx.getStorageSync("token") + "&deviceId=" + devid + "&slaveIndex=" + param.currentTarget.dataset.slaveindex + "&dataPointId=" + param.currentTarget.dataset.dataid
         })

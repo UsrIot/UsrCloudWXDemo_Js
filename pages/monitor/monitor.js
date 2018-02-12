@@ -50,7 +50,6 @@ Page({
         if (userinfo.token.length != 0) {
           wx.request({
             url: 'https://cloudapi.usr.cn/usrCloud/dev/getDevs',
-            // url: 'http://superking.ngrok.xiaomiqiu.cn/usrCloud/dev/getDevs',
             method: 'POST',
             data: {
               property_needed: [

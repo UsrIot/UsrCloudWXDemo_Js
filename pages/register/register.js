@@ -85,7 +85,7 @@ Page({
                         formId:res0.detail.formId
                     });
                     wx.request({
-                        url: 'http://superking.ngrok.xiaomiqiu.cn/usrCloud/user/wechatRegUser',
+                        url: 'https://cloudapi.usr.cn/usrCloud/user/wechatRegUser',
                         method:'POST',
                         data: {
                             "code": res.code,
@@ -95,7 +95,22 @@ Page({
                             "password":md5util.hexMD5(res0.detail.value.password)
                         },
                         success: function (res1) {
-                            console.log(res1);
+                            if (res1.data.status==0) {
+                                wx.showToast({
+                                    "title": "注册成功",
+                                    "icon": "loading"
+                                });
+                            }else if (res1.data.status ==1430){
+                                wx.showToast({
+                                    "title":"该微信已经注册过了",
+                                    "icon":"loading"
+                                });
+                            }else{
+                                wx.showToast({
+                                    "title":"注册失败",
+                                    "icon":"loading"
+                                });
+                            }
                         }
                     });
                 }

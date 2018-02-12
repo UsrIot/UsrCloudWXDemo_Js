@@ -57,7 +57,6 @@ Page({
         console.log(result)
         wx.request({
           url: 'https://cloudapi.usr.cn/usrCloud/dev/addDevice',
-          // url: 'http://superking.ngrok.xiaomiqiu.cn/usrCloud/dev/addDevice',
           method: 'POST',
           data: {
             device: {

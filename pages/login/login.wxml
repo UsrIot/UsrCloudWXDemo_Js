@@ -9,7 +9,7 @@
         <view class="inputView">
             <image class="nameImage" src="/images/login/user.png"></image>
             <label class="loginLab">账号</label>
-            <input class="inputText" placeholder="请输入账号" bindinput="phoneInput"/>
+            <input class="inputText" placeholder="请输入账号" value="{{account}}" bindinput="phoneInput"/>
         </view>
         <view class="line"></view>
 
@@ -17,7 +17,7 @@
         <view class="inputView">
             <image class="keyImage" src="/images/login/userpass.png"></image>
             <label class="loginLab">密码</label>
-            <input class="inputText" password="true" placeholder="请输入密码" bindinput="passwordInput"/>
+            <input class="inputText" password="true" value="{{password}}" placeholder="请输入密码" bindinput="passwordInput"/>
         </view>
 
 

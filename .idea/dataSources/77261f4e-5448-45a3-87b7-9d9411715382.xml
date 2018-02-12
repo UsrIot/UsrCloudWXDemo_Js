@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="newcloud@139.196.77.131">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
     <root id="1"/>
     <schema id="2" parent="1" name="newcloud">
       <Current>1</Current>

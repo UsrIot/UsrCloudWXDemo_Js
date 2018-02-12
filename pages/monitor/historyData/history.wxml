@@ -1,5 +1,13 @@
-
-    <web-view style="display:none"
-              src="https://cloudapi.usr.cn/wxPage/wxHistory.html?token={{token}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}"></web-view>
-
 <!--<web-view src="http://4bfb39ba.ngrok.io/wxHistory.html?token={{token}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}"></web-view>-->
+<view style="transform: rotate(90deg);">
+    <view style="margin-left:70rpx;width:154rpx; border-radius:29rpx; padding:10rpx; background-color:green; color:white;">
+    <picker bindchange="bindPickerChange" value="{{0}}" range="{{['最近一小时','今天']}}">
+        <view>
+            选择范围
+        </view>
+    </picker>
+</view>
+    <image lazy-load="true" mode="widthFix"
+           src="https://cloudapi.usr.cn/pChart/usrCloud/index.php?width={{width}}&height={{height}}&deviceId={{deviceId}}&slaveIndex={{slaveIndex}}&dataPointId={{dataPointId}}&startTime={{startTime}}&stopTime={{stopTime}}"
+           style="width:{{height-100}}px;"/>
+</view>

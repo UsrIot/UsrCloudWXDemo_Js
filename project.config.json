@@ -1,14 +1,14 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.1",
+	"libVersion": "1.9.8",
 	"appid": "wxf2f4459e53860f4b",
 	"projectname": "UsrCloudWechatApplet_v2.0",
 	"condition": {
@@ -24,7 +24,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 3,
 			"list": [
 				{
 					"id": -1,
@@ -37,6 +37,17 @@
 					"name": "monitor",
 					"pathName": "pages/monitor/monitor",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "history",
+					"pathName": "pages/monitor/historyData/history",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login"
 				}
 			]
 		}

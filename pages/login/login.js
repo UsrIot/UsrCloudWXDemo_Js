@@ -1,15 +1,15 @@
-var md5util = require('../../utils/md5.js')
+var md5util = require('../../utils/md5.js');
 var code;
 Page({
     onLoad: function (options) {
         var that = this;
         try {
             var account = wx.getStorageSync('userinfo').data.account;
-            var pass = wx.getStorageSync('userpass');
-            if (account && pass) {
+            var password = wx.getStorageSync('userpass');
+            if (account && password) {
                 that.setData({
                     account: account,
-                    password: pass
+                    password: password
                 });
                 that.loging();
             }
@@ -31,25 +31,19 @@ Page({
 
     // 获取输入密码
     passwordInput: function (e) {
-        this.setData({
-            password: e.detail.value
-        })
+        this.data.password=md5util.hexMD5(e.detail.value);
     },
 
     //登陆
     login: function () {
         var that = this;
-        if (this.data.account.length == 0 || this.data.password.length == 0) {
+        if (that.data.account.length == 0 || that.data.password.length == 0) {
             wx.showToast({
                 title: '不能为空',
                 icon: 'loading',
                 duration: 1000
             })
         } else {
-            //绑定功能暂时不用
-            // var resdata=that.checkBinding();
-            // that.checkBinding();
-            // that.binding();
             that.loging();
         }
     },
@@ -63,11 +57,10 @@ Page({
 
         wx.request({
             url: 'https://cloudapi.usr.cn/usrCloud/user/login',
-            // url: 'https://superking.ngrok.xiaomiqiu.cn/usrCloud/user/login',
             method: 'POST',
             data: {
                 account: this.data.account,
-                password: md5util.hexMD5(this.data.password)
+                password: this.data.password
                 // account: 'rock',
                 // password: md5util.hexMD5('rock')
             },
@@ -97,7 +90,7 @@ Page({
                 }
             },
             fail: function (err) {
-                console.log(err)
+                console.log(err);
                 wx.showToast({
                     title: '信息错误',
                     icon: 'loading',
@@ -121,7 +114,7 @@ Page({
                     wx.login({
                         success: function (res2) {
                             wx.request({
-                                url: 'http://superking.ngrok.xiaomiqiu.cn/usrCloud/user/wechatResetPass',
+                                url: 'https://cloudapi.usr.cn/usrCloud/user/wechatResetPass',
                                 method: 'POST',
                                 data: {
                                     "type": 0,
@@ -140,21 +133,27 @@ Page({
         })
     },
     wxLogin: function () {
+        wx.showLoading({
+                'title': '登录中'
+            }
+        );
         wx.login({
             success: function (res) {
                 wx.request({
                     // url: 'https://cloudapi.usr.cn/usrCloud/user/login',
-                    url: 'https://superking.ngrok.xiaomiqiu.cn/usrCloud/user/wechatLogin',
+                    url: 'https://cloudapi.usr.cn/usrCloud/user/wechatLogin',
                     method: 'POST',
                     data: {
                         "code": res.code,
                         "type": 0
                     },
                     success: function (res1) {
+                        wx.hideLoading();
                         if (res1.data.status == 0) {
-                            wx.setStorage('userinfo', res1.data);
-                            wx.setStorage('token', res1.data.data.token);
-                            wx.switchTab({
+                            wx.setStorage({'key': 'userinfo', 'data': res1.data});
+                            wx.setStorage({'key': 'userpass', 'data': res1.data.data.password});
+                            wx.setStorage({'key': 'token', 'data': res1.data.data.token});
+                            wx.reLaunch({
                                 url: '/pages/index/index',
                             })
                         } else {
