@@ -110,7 +110,7 @@ Page({
                 var dataPoint = dataPoints[key];
                 var dataInfoList = that.data.dataInfoList;
                 for (var key in dataInfoList) {
-                    if (dataInfoList[key].id == dataPoint.pointId) {
+                    if (dataInfoList[key].id == dataPoint.pointId&&dataInfoList[key].slaveIndex == dataPoint.slaveIndex) {
                         dataInfoList[key].value = dataPoint.value;
                         dataInfoList[key].createTime = that.getTime(new Date().getTime() / 1000, 'y-M-d h:m');
                     }
@@ -312,7 +312,7 @@ Page({
                 //更新数据
                 for (var key in lastDataInfos) {
                     for (var key2 in dataInfoList) {
-                        if (lastDataInfos[key].dataPointId == dataInfoList[key2].id) {
+                        if (lastDataInfos[key].dataPointId == dataInfoList[key2].id&&lastDataInfos[key].slaveIndex == dataInfoList[key2].slaveIndex) {
                             dataInfoList[key2].alarm = lastDataInfos[key].alarm;
                             dataInfoList[key2].createTime = that.getTime(lastDataInfos[key].createTime, 'y-M-d h:m');
                             dataInfoList[key2].value = lastDataInfos[key].value;
