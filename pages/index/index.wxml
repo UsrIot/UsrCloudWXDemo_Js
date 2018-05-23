@@ -3,7 +3,7 @@
   <input></input>
 </view> -->
 <view>
-  <map id="map" longitude="117.02496707" latitude="36.68278473" scale="10" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" data-statu="open" bindregionchange="regionchange" style="width:100%; height: {{height}}px;position:fixed;bottom:0;border: 1px solid #e8e8ea;  " 
+  <map id="map" longitude="117.02496707" latitude="36.68278473" scale="7" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="markertap" data-statu="open" bindregionchange="regionchange" style="width:100%; height: {{height}}px;position:fixed;bottom:0;border: 1px solid #e8e8ea;  " 
     bindtap="mapbindtap"></map>
 </view>
 
