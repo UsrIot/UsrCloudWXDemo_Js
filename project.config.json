@@ -8,7 +8,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.8",
+	"libVersion": "1.9.91",
 	"appid": "wxf2f4459e53860f4b",
 	"projectname": "UsrCloudWechatApplet_v2.0",
 	"condition": {
@@ -24,7 +24,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -47,7 +47,20 @@
 				{
 					"id": -1,
 					"name": "login",
-					"pathName": "pages/login/login"
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "bar",
+					"pathName": "pages/bar/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "monitordata",
+					"pathName": "pages/monitor/monitordata/monitordata",
+					"query": ""
 				}
 			]
 		}

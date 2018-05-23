@@ -7,7 +7,8 @@
     "pages/monitor/monitordata/monitordata",
     "pages/user/user",
     "pages/monitor/historyData/history",
-    "pages/register/register"
+    "pages/register/register",
+    "pages/bar/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#ffffff",
