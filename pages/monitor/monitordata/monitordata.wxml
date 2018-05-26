@@ -20,8 +20,11 @@
 <!--设备对应的数据点信息  -->
 <block wx:for="{{dataInfoList}}" wx:for-index="idx">
   <view class="device-data-infos" data-dataid='{{item.devid}}{{idx}}'>
-    <view class='device--data-icon'>
-      <image src='/images/monitor/dataicon.png'></image>
+    <view class='device--data-icon' wx:if='{{item.type==1}}'>
+      <image src='/images/monitor/di.png'></image>
+    </view>
+    <view class='device--data-icon' wx:else='{{item.type==0}}'>
+      <image src='/images/monitor/ai.png'></image>
     </view>
     <view class='device-data'>
       <text class='device-data-name'>{{item.name}}</text>
