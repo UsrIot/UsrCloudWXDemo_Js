@@ -1,1 +1,0 @@
-<button  type="primary" bindtap="scanCode">扫码添加设备</button>
